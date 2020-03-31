@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: rejikubia-vol
+spec: 
+ nodeSelector:
+  env: test
+ containers: 
+ - image: rejivl/rejikubia:latest
+   name: rejivolkubia
+   ports:
+   - containerPort: 8080
+     protocol: TCP
+   volumeMounts:
+   - name: kubia-nfs
+     mountPath: /data/
+ volumes:
+ - name: kubia-nfs
+   nfs:
+    path: /nfs
+    server: 192.168.1.7	

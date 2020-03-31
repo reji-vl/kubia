@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: kubia-manual-v2-selector
+ labels:
+  create-type: manual
+  environment: dev
+spec:
+ nodeSelector:
+  env: test
+ containers:
+ - image: rejivl/rejikubia:latest
+   name: kubiawithlabel
+   ports:
+   - containerPort: 8080
+     protocol: TCP 

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: rejikubia-manual
+spec: 
+ nodeSelector:
+  env: test
+ containers: 
+ - image: rejivl/rejikubia:latest
+   name: rejicontkubia
+   ports:
+   - containerPort: 8080
+     protocol: TCP	
